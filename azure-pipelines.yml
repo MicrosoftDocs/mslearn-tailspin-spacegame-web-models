@@ -38,6 +38,9 @@ steps:
   inputs:
     versionSpec: 
     checkLatest: true
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'nuget'
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
