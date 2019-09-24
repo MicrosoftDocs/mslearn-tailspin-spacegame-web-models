@@ -40,7 +40,8 @@ steps:
     checkLatest: true
 - task: NuGetAuthenticate@0
   inputs:
-    nuGetServiceConnections: 'nuget'
+    nuGetServiceConnections: 'Nueva_nuget'
+    forceReinstallCredentialProvider: true
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
