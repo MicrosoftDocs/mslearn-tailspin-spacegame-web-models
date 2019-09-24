@@ -38,10 +38,7 @@ steps:
   inputs:
     versionSpec: 
     checkLatest: true
-- task: NuGetAuthenticate@0
-  inputs:
-    nuGetServiceConnections: 'Nueva_nuget'
-    forceReinstallCredentialProvider: true
+
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
