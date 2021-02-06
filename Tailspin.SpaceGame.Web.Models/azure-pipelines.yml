@@ -1,9 +1,15 @@
-﻿pool:
-  vmImage: 'Ubuntu-18.04'
+﻿trigger:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-18.04'
+  demands:
+    - npm
 
 variables:
   buildConfiguration: 'Release'
-  dotnetSdkVersion: '5.0.102'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '5.0.101'
 
 steps:
 - task: UseDotNet@2
@@ -31,10 +37,10 @@ steps:
     projects: '**/*.csproj'
     arguments: '--no-build --configuration $(buildConfiguration)'
     versioningScheme: byPrereleaseNumber
-    majorVersion: '1'
+    majorVersion: '2'
     minorVersion: '0'
     patchVersion: '0'
- 
+
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
   inputs:
@@ -42,3 +48,4 @@ steps:
     publishVstsFeed: 'Space Game - web - Dependencies/Tailspin.SpaceGame.Web.ModelsC'
     allowPackageConflicts: true
   condition: succeeded()
+
