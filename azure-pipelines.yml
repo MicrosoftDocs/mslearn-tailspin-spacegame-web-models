@@ -37,10 +37,8 @@ steps:
     command: 'pack'
     projects: '**/*.csproj'
     arguments: '--no-build --configuration $(buildConfiguration)'
-    versioningScheme: byPrereleaseNumber
-    majorVersion: $(GitVersion.Major)
-    minorVersion: $(GitVersion.Minor)
-    patchVersion: $(GitVersion.Patch)
+    versioningScheme: byEnvVar
+    versionEnvVar: $(NuGetVersionV2)
  
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
