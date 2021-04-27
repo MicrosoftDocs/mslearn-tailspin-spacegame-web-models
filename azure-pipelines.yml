@@ -11,6 +11,13 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+- task: gitversion/setup@0
+  displayName: Install GitVersion
+  inputs:
+    versionSpec: '5.x'
+- task: gitversion/execute@0
+  displayName: Determine Version
+
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
@@ -31,9 +38,9 @@ steps:
     projects: '**/*.csproj'
     arguments: '--no-build --configuration $(buildConfiguration)'
     versioningScheme: byPrereleaseNumber
-    majorVersion: '2'
-    minorVersion: '1'
-    patchVersion: '0'
+    majorVersion: $(GitVersion.Major)
+    minorVersion: $(GitVersion.Minor)
+    patchVersion: $(GitVersion.Patch)
  
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
