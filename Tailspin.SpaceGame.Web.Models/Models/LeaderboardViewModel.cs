@@ -15,13 +15,9 @@ namespace TailSpin.SpaceGame.Web.Models
 
         // The number of items to show per page in the view.
         public int PageSize { get; set; }
-
         // The scores to display in the view.
-        public IEnumerable<ScoreProfile> Scores { get; set; }
-
-        // The game modes to display in the view.
+        public IEnumerable<ScoreProfile> Scores { get; set; }        // The game modes to display in the view.
         public IEnumerable<string> GameModes { get; set; }
-
         // The game regions (maps) to display in the view.
         public IEnumerable<string> GameRegions { get; set; }
 
