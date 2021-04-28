@@ -37,6 +37,7 @@ namespace TailSpin.SpaceGame.Web.Models
     {
         // The player's score.
         public Score Score;
+        
         // The player's profile.
         public Profile Profile;
     }
