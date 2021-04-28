@@ -23,9 +23,11 @@ namespace TailSpin.SpaceGame.Web.Models
         // Hyperlink to the previous page of results.
         // This is empty if this is the first page.
         public string PrevLink { get; set; }
+        
         // Hyperlink to the next page of results.
         // This is empty if this is the last page.
         public string NextLink { get; set; }
+
         // The total number of results for the selected game mode and region in the view.
         public int TotalResults { get; set; }
     }
@@ -37,7 +39,7 @@ namespace TailSpin.SpaceGame.Web.Models
     {
         // The player's score.
         public Score Score;
-        
+
         // The player's profile.
         public Profile Profile;
     }
