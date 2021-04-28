@@ -1,5 +1,7 @@
 next-version: 1.0.0
-branches: {}
+branches:
+  main:
+    mode: ContinuousDeployment
 ignore:
   sha: []
 merge-message-formats: {}
