@@ -15,15 +15,17 @@ namespace TailSpin.SpaceGame.Web.Models
 
         // The scores to display in the view.
         public IEnumerable<ScoreProfile> Scores { get; set; }
+        
         // The game modes to display in the view.
         public IEnumerable<string> GameModes { get; set; }
+
         // The game regions (maps) to display in the view.
         public IEnumerable<string> GameRegions { get; set; }
 
         // Hyperlink to the previous page of results.
         // This is empty if this is the first page.
         public string PrevLink { get; set; }
-        
+
         // Hyperlink to the next page of results.
         // This is empty if this is the last page.
         public string NextLink { get; set; }
