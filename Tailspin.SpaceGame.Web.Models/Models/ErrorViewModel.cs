@@ -1,6 +1,5 @@
 namespace TailSpin.SpaceGame.Web.Models
 {
-    // Error view model
     public class ErrorViewModel
     {
         // Request Id assigned by error handling code.
