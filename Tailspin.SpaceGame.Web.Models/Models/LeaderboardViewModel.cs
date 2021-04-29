@@ -15,6 +15,7 @@ namespace TailSpin.SpaceGame.Web.Models
         
         // The number of items to show per page in the view.
         public int PageSize { get; set; }
+
         // The scores to display in the view.
         public IEnumerable<ScoreProfile> Scores { get; set; }        // The game modes to display in the view.
         public IEnumerable<string> GameModes { get; set; }
@@ -24,9 +25,11 @@ namespace TailSpin.SpaceGame.Web.Models
         // Hyperlink to the previous page of results.
         // This is empty if this is the first page.
         public string PrevLink { get; set; }
+
         // Hyperlink to the next page of results.
         // This is empty if this is the last page.
         public string NextLink { get; set; }
+        
         // The total number of results for the selected game mode and region in the view.
         public int TotalResults { get; set; }
     }
