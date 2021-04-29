@@ -26,6 +26,7 @@ steps:
   inputs:
     useConfigFile: true
     configFilePath: 'GitVersion.yml'
+    additionalArguments: '/showConfig'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
