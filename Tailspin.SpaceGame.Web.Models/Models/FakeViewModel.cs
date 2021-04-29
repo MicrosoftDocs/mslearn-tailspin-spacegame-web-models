@@ -13,6 +13,7 @@ namespace TailSpin.SpaceGame.Web.Models
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
+        // Age
         [JsonProperty(PropertyName = "age")]
         public int Age { get; set; }
     }
