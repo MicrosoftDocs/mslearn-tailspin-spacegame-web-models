@@ -1,9 +1,10 @@
-next-version: 1.0.0
 mode: Mainline
-ignore:
-  sha: []
-merge-message-formats: {}
+next-version: 1.0.0
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
 commit-message-incrementing: Enabled
+branches: {}
+ignore:
+  sha: []
+merge-message-formats: {}
