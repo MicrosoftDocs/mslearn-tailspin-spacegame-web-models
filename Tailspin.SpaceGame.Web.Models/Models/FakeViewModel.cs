@@ -7,7 +7,6 @@ namespace TailSpin.SpaceGame.Web.Models
     /// </summary>
     public abstract class FakeViewModel
     {
-        // The value that uniquely identifies this object.
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
     }
