@@ -2,7 +2,7 @@ trigger:
  branches:
   include: 
   - master
-  
+
 pool:
   vmImage: 'Ubuntu-18.04'
 
@@ -20,9 +20,12 @@ steps:
   displayName: Install GitVersion
   inputs:
     versionSpec: '5.x'
+
 - task: gitversion/execute@0
   displayName: Determine Version
-
+  inputs:
+      useConfigFile: true
+      
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
