@@ -4,7 +4,18 @@ major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
 commit-message-incrementing: Enabled
-branches: {}
+branches:
+  master:
+    mode: Mainline
+    tag: ''
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
+    pre-release-weight: 55000
+    is-source-branch-for: ['feature', 'release', 'hotfix']
 ignore:
   sha: []
 merge-message-formats: {}
