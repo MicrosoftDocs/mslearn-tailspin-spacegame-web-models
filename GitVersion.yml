@@ -1,7 +1,5 @@
 next-version: 1.0.0
-branches:
-  main:
-    mode: Mainline
+mode: Mainline
 ignore:
   sha: []
 merge-message-formats: {}
