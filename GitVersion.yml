@@ -6,7 +6,6 @@ patch-version-bump-message: '\+semver:\s?(fix|patch)'
 commit-message-incrementing: Enabled
 branches:
   master:
-    mode: Mainline
     tag: ''
     increment: Patch
     prevent-increment-of-merged-branch-version: true
