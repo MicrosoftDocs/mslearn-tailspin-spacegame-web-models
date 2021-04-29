@@ -11,6 +11,7 @@ namespace TailSpin.SpaceGame.Web.Models
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
+        // The value that uniquely identifies this object.
         public string Name { get; set; }
     }
 }
