@@ -24,8 +24,9 @@ steps:
 - task: gitversion/execute@0
   displayName: Determine Version
   inputs:
-      useConfigFile: true
-      
+    useConfigFile: true
+    configFilePath: 'GitVersion.yml'
+
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
