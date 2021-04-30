@@ -7,15 +7,21 @@ namespace TailSpin.SpaceGame.Web.Models
     /// </summary>
     public abstract class FakeViewModel
     {
-        // Id
+        /// <summary>
+        /// Id
+        /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
-        // Name
+        /// <summary>
+        /// Name
+        /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        // Age
+        /// <summary>
+        /// Age
+        /// </summary>
         [JsonProperty(PropertyName = "age")]
         public int Age { get; set; }
     }
