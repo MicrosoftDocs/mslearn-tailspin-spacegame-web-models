@@ -2,6 +2,7 @@
 
 namespace TailSpin.SpaceGame.Web.Models
 {
+
     /// <summary>
     /// Base class for data models.
     /// </summary>
