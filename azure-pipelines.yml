@@ -1,4 +1,7 @@
 pool:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
   vmImage: 'ubuntu-20.04'
 
 variables:
