@@ -1,0 +1,52 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  ProjectName: 'MyHealth.Common'
+  ProjectPath: '**/MyHealth.Common.csproj'
+  buildConfiguration: 'Release'
+
+steps:
+  - task: UseDotNet@2
+    displayName: 'Install .NET Core SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet restore'
+    inputs:
+      command: 'restore'
+      projects: '$(ProjectPath)'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'Build $(ProjectName)'
+    inputs:
+      command: 'build'
+      arguments: '--configuration $(buildConfiguration)'
+      projects: '$(ProjectPath)'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Pack $(ProjectName)'
+    inputs:
+      command: 'pack'
+      arguments: '--configuration $(buildConfiguration)'
+      packagesToPack: '$(ProjectPath)'
+      nobuild: true
+      versioningScheme: 'off'
+
+  - task: NuGetAuthenticate@0
+
+  - task: NuGetCommand@2
+    displayName: 'Publish $(ProjectName)'
+    inputs:
+      command: push
+      feedsToUse: 'select'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+      nuGetFeedType: 'internal'
+      publishVstsFeed: 'projectname/feedname'
+      versioningScheme: 'off'
+      allowPackageConflicts: true

@@ -4,6 +4,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '6.x'
+  ProjectName: 'Tailspin.SpaceGame.Web.Models'
+  ProjectPath: '**/Tailspin.SpaceGame.Web.Models.csproj'
 
 steps:
 - task: UseDotNet@2
@@ -12,17 +14,17 @@ steps:
     version: '$(dotnetSdkVersion)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
+  displayName: 'dotnet restore'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    projects: '$(ProjectPath)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
+  displayName: 'Build $(ProjectName)'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+    projects: '$(ProjectPath)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
@@ -34,11 +36,17 @@ steps:
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '0'
+
+- task: NuGetAuthenticate@0
  
 - task: NuGetCommand@2
-  displayName: 'Publish NuGet package'
+  displayName: 'Publish $(ProjectName)'
   inputs:
     command: push
-    feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Model'
+    feedsToUse: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'Space Game - web - Dependencies/Tailspin.SpaceGame.Web.Model'
+    versioningScheme: 'off'
     allowPackageConflicts: true
   condition: succeeded()
